@@ -1,0 +1,34 @@
+{
+  "name": "my-express-app",
+  "version": "1.0.0",
+  "description": "A basic Express.js application with TypeScript",
+  "main": "dist/app.js",
+  "scripts": {
+    "start_cronjob": "node dist/presentation/cronjob.js",
+    "start_api": "node dist/presentation/http.js",
+    "webhook":"",
+    "build": "tsc",
+    "dev": "concurrently \"nodemon src/presentation/http.ts\" \"nodemon src/presentation/cronjob.ts\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ngneat/falso": "^8.0.2",
+    "cron": "^4.4.0",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "starkbank": "^2.38.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.10.15",
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": "24.10.X"
+  }
+}

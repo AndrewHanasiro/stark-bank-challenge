@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm run start_api
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    restart: unless-stopped
+
+  cronjob:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm run start_cronjob
+    env_file:
+      - .env
+    restart: unless-stopped
