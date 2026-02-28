@@ -4,7 +4,6 @@ import { Starkbank } from "../lib/starkbank";
 export abstract class WebhookUsecase {
   static getType(event: Event) {
     // See possible values here: https://starkbank.com/docs/api#webhook
-    console.log(event)
     switch (event.subscription) {
       case "transfer":
         return new TransferWebhookUsecase();

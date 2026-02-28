@@ -25,6 +25,7 @@ const job = new CronJob(
   "America/Sao_Paulo",
 );
 
+console.log(`Starting cronjob on env: ${process.env.NODE}`)
 job.start();
 
 function createData() {
