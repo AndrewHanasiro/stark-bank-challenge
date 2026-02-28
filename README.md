@@ -3,5 +3,5 @@
 How to execute
 
 ```bash
-docker compose up -d
+npm run dev && npm run pinggy
 ```

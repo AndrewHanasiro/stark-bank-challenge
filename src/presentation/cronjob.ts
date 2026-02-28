@@ -4,16 +4,17 @@ import { randEmail, randFloat, randFullName, randNumber } from "@ngneat/falso";
 
 const NUMBER_OF_INVOICES = 1;
 
+const CRONTAB =
+  process.env.NODE === "development" ? "* * * * *" : "0 */3 * * *";
 
 const job = new CronJob(
-//   "0 */3 * * *", // Schedule task to run at minute 0 past every 3rd hour (e.g., 00:00, 03:00, 06:00...)
-  "* * * * *", // For testing for every minute
+  CRONTAB,
   async function () {
     const usecase = new InvoiceUsecase();
-    let dataList = []
+    let dataList = [];
     for (let i = 0; i < NUMBER_OF_INVOICES; i++) {
       const data = createData();
-      dataList.push(data)
+      dataList.push(data);
     }
     await usecase.sendInvoice(dataList);
   },

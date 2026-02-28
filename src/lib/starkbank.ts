@@ -41,9 +41,9 @@ export class Starkbank {
     let invoices = await starkbank.invoice.create(
       invoiceFormatted as starkbank.Invoice[],
     );
-    for (let invoice of invoices) {
-      console.log(invoice);
-    }
+    // for (let invoice of invoices) {
+    //   console.log(invoice);
+    // }
   }
 
   private prepareInvoice({
@@ -89,10 +89,11 @@ export class Starkbank {
   }
 
   async transfer(data: starkbank.Event) {
+    const amount =
+      (data.log as starkbank.invoice.Log).invoice.amount * FEE_SERVICE;
     let transfers = await starkbank.transfer.create([
       {
-        amount:
-          (data.log as starkbank.invoice.Log).invoice.amount * FEE_SERVICE,
+        amount: Math.round(amount),
         bankCode: "20018183",
         branchCode: "0001",
         accountNumber: "6341320293482496",
