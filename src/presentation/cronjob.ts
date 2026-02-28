@@ -5,9 +5,9 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const NUMBER_OF_INVOICES = process.env.NODE === "development" ? 1 : 10;
+const NUMBER_OF_INVOICES = process.env.NODE_ENV === "development" ? 1 : 10;
 const CRONTAB =
-  process.env.NODE === "development" ? "* * * * *" : "0 */3 * * *";
+  process.env.NODE_ENV === "development" ? "* * * * *" : "0 */3 * * *";
 
 const job = new CronJob(
   CRONTAB,
@@ -25,7 +25,7 @@ const job = new CronJob(
   "America/Sao_Paulo",
 );
 
-console.log(`Starting cronjob on env: ${process.env.NODE}`)
+console.log(`Starting cronjob on env: ${process.env.NODE_ENV}`)
 job.start();
 
 function createData() {
