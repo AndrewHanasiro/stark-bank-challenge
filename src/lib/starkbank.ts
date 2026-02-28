@@ -41,9 +41,9 @@ export class Starkbank {
     let invoices = await starkbank.invoice.create(
       invoiceFormatted as starkbank.Invoice[],
     );
-    // for (let invoice of invoices) {
-    //   console.log(invoice);
-    // }
+    for (let invoice of invoices) {
+      console.log(invoice);
+    }
   }
 
   private prepareInvoice({

@@ -1,7 +1,7 @@
 # stark-bank-challenge
 
-How to execute
+You can see demo here:
 
-```bash
-npm run dev && npm run pinggy
-```
+<video src="docs/demo.mp4" width="600" controls>
+  Your browser does not support the video tag.
+</video>
