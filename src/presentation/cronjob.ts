@@ -1,9 +1,11 @@
 import { CronJob } from "cron";
 import { InvoiceUsecase } from "../usecase/send_invoice";
-import { randEmail, randFloat, randFullName, randNumber } from "@ngneat/falso";
+import { randEmail, randFullName, randNumber } from "@ngneat/falso";
+import dotenv from "dotenv";
 
-const NUMBER_OF_INVOICES = 1;
+dotenv.config();
 
+const NUMBER_OF_INVOICES = process.env.NODE === "development" ? 1 : 10;
 const CRONTAB =
   process.env.NODE === "development" ? "* * * * *" : "0 */3 * * *";
 
