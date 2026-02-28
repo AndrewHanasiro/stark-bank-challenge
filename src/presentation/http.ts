@@ -20,7 +20,7 @@ app.get("/health", (req: Request, res: Response) => {
 
 // Another example route
 app.post("/webhook", async (req: Request, res: Response) => {
-  const body = req.body as Event;
+  const body = req.body.event as Event;
   const usecase = WebhookUsecase.getType(body);
   await usecase.process(body);
   res.status(200).send("Received webhook request");

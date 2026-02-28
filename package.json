@@ -6,8 +6,9 @@
   "scripts": {
     "start_cronjob": "node dist/presentation/cronjob.js",
     "start_api": "node dist/presentation/http.js",
-    "webhook":"",
+    "webhook": "",
     "build": "tsc",
+    "pinggy": "ssh -p 443 -R0:localhost:3000 free.pinggy.io",
     "dev": "concurrently \"nodemon src/presentation/http.ts\" \"nodemon src/presentation/cronjob.ts\""
   },
   "keywords": [],
@@ -15,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@ngneat/falso": "^8.0.2",
+    "@pinggy/pinggy": "^0.3.5",
     "cron": "^4.4.0",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
